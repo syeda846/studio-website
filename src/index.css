@@ -1,0 +1,130 @@
+@import "tailwindcss";
+@import "./styles/design.css";
+
+/* Preserve the reference defaults against Tailwind Preflight. */
+body { margin: 0; }
+h1,h2,h3,p { margin: 0; }
+h2 { font-size: 1.5em; }
+button,input,textarea { letter-spacing: normal; }
+svg { display: inline; vertical-align: baseline; }
+
+/* Keep native document scrolling. Never resize the page to follow animation
+   bounds, and never let reveal/chat changes select a new scroll anchor. */
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  overflow-y: auto;
+  overflow-anchor: none;
+  scrollbar-gutter: stable;
+  overscroll-behavior-x: none;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+  min-height: 100svh;
+  overflow-x: clip;
+  overflow-anchor: none;
+}
+
+#root {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: 100svh;
+  isolation: isolate;
+  overflow-anchor: none;
+}
+
+main {
+  display: flow-root;
+  width: 100%;
+  min-width: 0;
+  overflow: clip;
+}
+
+/* A transform can enlarge scrollable overflow even without changing layout.
+   Paint containment stops it at each section, before it reaches the document.
+   Section padding leaves room for the original reveals, shadows and robot. */
+main > section {
+  width: 100%;
+  max-width: 1160px;
+  min-width: 0;
+  contain: layout paint;
+  overflow: clip;
+  overflow-anchor: none;
+}
+
+main > .mq {
+  width: 100%;
+  min-width: 0;
+  contain: inline-size layout paint;
+}
+
+#nav {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Reserve the maximum typing bubble size instead of resizing each character. */
+.bub {
+  width: 230px;
+  max-width: 100%;
+  height: 77px;
+}
+
+@supports not (overflow: clip) {
+  html, body { overflow-x: hidden; }
+  main, main > section { overflow: hidden; }
+}
+
+.ambient-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  contain: strict;
+  pointer-events: none;
+}
+
+.ambient-background #cv {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ambient-background .bl {
+  position: absolute;
+}
+
+/* Grid/flex children must be allowed to shrink below their content width. */
+.grid > *, .pe > * {
+  min-width: 0;
+}
+
+/* A looping chat should scroll internally instead of resizing the document. */
+.msgs {
+  height: 290px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  overflow-anchor: none;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+  contain: size layout paint;
+}
+
+.mg {
+  flex-shrink: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Keep the original navigation usable on short mobile screens too. */
+@media (max-width: 760px) {
+  .menu.open {
+    max-height: calc(100dvh - 65px);
+    overflow-y: auto;
+  }
+}
