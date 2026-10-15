@@ -2,6 +2,7 @@
 @import "./styles/design.css";
 @import "./styles/sections.css";
 @import "./styles/journey.css";
+@import "./styles/audit.css";
 
 /* Preserve the reference defaults against Tailwind Preflight. */
 body { margin: 0; }

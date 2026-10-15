@@ -4,9 +4,11 @@ export default function Contact({ auditRequest }) {
   const websiteField = useRef(null);
   const projectField = useRef(null);
   const nameField = useRef(null);
+  const contactField = useRef(null);
   useEffect(() => {
     if (!auditRequest) return;
     websiteField.current.value = auditRequest.website;
+    if (auditRequest.email) contactField.current.value = auditRequest.email;
     const request = `I would like a free website audit for ${auditRequest.website}`;
     if (!projectField.current.value.includes(request)) {
       projectField.current.value = [projectField.current.value.trim(), request].filter(Boolean).join('\n\n');
@@ -45,7 +47,7 @@ export default function Contact({ auditRequest }) {
     </div>
     <form className="fm" id="project-form" onSubmit={handleSubmit}>
       <span className="form-caption text-[.9rem] font-bold">{auditRequest ? 'Complete your free website audit request' : 'What can we help you with?'}</span>
-      {auditRequest && <p role="status" className="text-sm text-[color:var(--muted)]">Your website has been added below. Add your name and contact details to finish the brief. This preview does not send requests.</p>}
+      {auditRequest && <p role="status" className="text-sm text-[color:var(--muted)]">Your website and email have been added below. Add your name and any further details to finish the brief. This preview does not send requests.</p>}
       <div className="chips" id="chips">
         {['Website', 'Store', 'App', 'AI tools', 'Redesign', 'Support'].map(service => <button key={service} type="button" aria-pressed="false">
           {service}
@@ -57,7 +59,7 @@ export default function Contact({ auditRequest }) {
       </label>
       <label>
         <span>Email or WhatsApp</span>
-        <input id="e" name="contact" required autoComplete="email" placeholder="How can we reach you?" />
+        <input ref={contactField} id="e" name="contact" required autoComplete="email" placeholder="How can we reach you?" />
       </label>
       <label>
         <span>Existing website <span className="optional">(optional)</span></span>

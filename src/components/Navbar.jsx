@@ -16,7 +16,7 @@ const links = [{
   label: 'FAQs',
   id: 'faq'
 }];
-export default function Navbar() {
+export default function Navbar({ onOpenAudit }) {
   const [theme, setTheme] = useState(readSavedTheme);
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
@@ -37,9 +37,10 @@ export default function Navbar() {
       }) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>
       {label}
     </a>)}
+    <div className="nav-menu-audit"><span>A fresh perspective on your website.</span><button type="button" className="btn p" aria-haspopup="dialog" onClick={() => { setMenuOpen(false); onOpenAudit(); }}>Book your free website audit &#8599;</button></div>
   </div>
   <div className="nav-actions flex items-center justify-self-end gap-3">
-    <a className="btn p nav-cta" href="#website-audit" onClick={() => setMenuOpen(false)}>Request free audit <span aria-hidden="true">&#8599;</span></a>
+    <button type="button" className="btn p nav-cta" aria-haspopup="dialog" onClick={() => { setMenuOpen(false); onOpenAudit(); }}><svg className="nav-audit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 4.5 4.5M8 10.5l2 2 3-4" /></svg><span className="nav-audit-desktop">Request free audit</span><span className="nav-audit-mobile">Free Audit</span></button>
     <button className="tg" id="t" type="button" aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`} onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
       {theme === 'dark' ? '🌙' : '☀️'}
     </button>

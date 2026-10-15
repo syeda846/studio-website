@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import TrustStrip from "./components/TrustStrip"
 import Challenges from "./components/Challenges"
 import Testimonials from "./components/Testimonials"
+import AuditModal from "./components/AuditModal"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
 import TechMarquee from "./components/TechMarquee"
@@ -20,12 +21,14 @@ import useStudioEffects from "./hooks/useStudioEffects"
 
 export default function App() {
   const [auditRequest, setAuditRequest] = useState(null)
+  const auditDialog = useRef(null)
+  const openAudit = () => auditDialog.current.showModal()
   useStudioEffects()
   return <>
     <Background />
-    <Navbar />
+    <Navbar onOpenAudit={openAudit} />
     <main>
-      <Hero onRequestAudit={(website) => setAuditRequest({ website })} />
+      <Hero onOpenAudit={openAudit} />
       <TrustStrip />
       <Challenges />
       <Services />
@@ -41,6 +44,7 @@ export default function App() {
       <Contact auditRequest={auditRequest} />
     </main>
     <Footer />
+    <AuditModal dialogRef={auditDialog} onRequestAudit={(website, email) => setAuditRequest({ website, email })} />
     <a className="fab" href="#contact" aria-label="Contact us">💬</a>
   </>
 }

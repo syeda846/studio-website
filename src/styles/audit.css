@@ -1,0 +1,34 @@
+/* Modal surface/effects only; layout and spacing live in Tailwind utilities. */
+.audit-modal { background:var(--bg); box-shadow:0 32px 100px rgba(0,0,0,.35),0 0 60px var(--glow); }
+.audit-modal::backdrop { background:color-mix(in srgb,var(--bg) 76%,transparent); backdrop-filter:blur(10px); }
+.audit-modal[open] { animation:audit-appear .25s ease-out both; }
+.audit-intro { background:radial-gradient(ellipse at 15% 0%,color-mix(in srgb,var(--b) 18%,transparent),transparent 75%); }
+.audit-form-panel { background:var(--bg2); border-left:1px solid var(--line); }
+.audit-lens { color:var(--ink); background:linear-gradient(135deg,var(--b2),var(--v)); box-shadow:0 12px 30px var(--glow); }
+.audit-lens::after { content:""; position:absolute; inset:-7px; border:1px dashed var(--line); border-radius:26px; }
+.audit-modal .audit-title { font-size:clamp(1.8rem,3vw,2.35rem); line-height:1.12; }
+.audit-title > span { background:linear-gradient(100deg,var(--b),var(--v)); background-clip:text; -webkit-background-clip:text; color:transparent; }
+.audit-close:hover { color:var(--ink); border-color:var(--b); }
+html:has(.audit-modal[open]) { overflow-y:hidden; }
+#nav .nav-cta { display:inline-flex; align-items:center; justify-content:center; gap:8px; }
+#nav .nav-audit-icon { width:15px; height:15px; flex-shrink:0; }
+.nav-audit-mobile,.nav-menu-audit { display:none; }
+@keyframes audit-appear { from { opacity:0; transform:translateY(12px) scale(.98); } to { opacity:1; transform:none; } }
+@media(max-width:767px) { .audit-form-panel { border-left:0; border-top:1px solid var(--line); } }
+@media(max-width:760px) {
+ #nav .nav-cta { display:inline-flex; padding:9px 11px; font-size:.7rem; border-radius:12px; }
+ #nav .nav-audit-desktop { display:none; }
+ #nav .nav-audit-mobile { display:inline; }
+ #nav .nav-actions { gap:8px; }
+ #nav .nav-menu-audit { display:grid; width:100%; gap:10px; padding:14px 5% 20px; border-top:1px solid var(--line); }
+ .nav-menu-audit > span { font-size:.75rem; color:var(--muted); }
+ .nav-menu-audit .btn { width:100%; text-align:center; font-size:.85rem; }
+}
+@media(max-width:480px) {
+ #nav { gap:8px; padding-inline:12px; }
+ #nav .logo { gap:6px; font-size:1rem; }
+ #nav .logo svg { width:23px; height:23px; }
+ #nav .nav-actions { gap:6px; }
+ #nav .nav-cta { padding:9px 8px; font-size:.65rem; gap:5px; }
+ #nav .tg,#nav .ham { width:32px; height:32px; flex-shrink:0; }
+}
