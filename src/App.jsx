@@ -1,3 +1,7 @@
+import { useState } from "react"
+import TrustStrip from "./components/TrustStrip"
+import Challenges from "./components/Challenges"
+import Testimonials from "./components/Testimonials"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
 import TechMarquee from "./components/TechMarquee"
@@ -15,22 +19,26 @@ import Background from "./components/Background"
 import useStudioEffects from "./hooks/useStudioEffects"
 
 export default function App() {
+  const [auditRequest, setAuditRequest] = useState(null)
   useStudioEffects()
   return <>
     <Background />
     <Navbar />
     <main>
-      <Hero />
-      <TechMarquee />
+      <Hero onRequestAudit={(website) => setAuditRequest({ website })} />
+      <TrustStrip />
+      <Challenges />
       <Services />
+      <Work />
       <WhyUs />
       <Process />
-      <Work />
       <AiHelper />
+      <Testimonials />
       <WaysToWork />
       <Team />
+      <TechMarquee />
       <Faq />
-      <Contact />
+      <Contact auditRequest={auditRequest} />
     </main>
     <Footer />
     <a className="fab" href="#contact" aria-label="Contact us">💬</a>

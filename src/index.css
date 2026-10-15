@@ -1,9 +1,10 @@
 @import "tailwindcss";
 @import "./styles/design.css";
+@import "./styles/sections.css";
+@import "./styles/journey.css";
 
 /* Preserve the reference defaults against Tailwind Preflight. */
 body { margin: 0; }
-h1,h2,h3,p { margin: 0; }
 h2 { font-size: 1.5em; }
 button,input,textarea { letter-spacing: normal; }
 svg { display: inline; vertical-align: baseline; }
@@ -49,7 +50,9 @@ main {
    Section padding leaves room for the original reveals, shadows and robot. */
 main > section {
   width: 100%;
-  max-width: 1160px;
+  max-width: 2240px;
+  padding-inline: clamp(20px, 4vw, 96px);
+  padding-block: clamp(56px, 5vw, 96px);
   min-width: 0;
   contain: layout paint;
   overflow: clip;

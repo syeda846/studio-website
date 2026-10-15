@@ -1,0 +1,429 @@
+/* Conversion sections extend the original theme; no replacement palette. */
+.small-tag {
+  border: 1px solid var(--line);
+}
+.text-link {
+  border: 0;
+  font: 700 .92rem "Instrument Sans",sans-serif;
+}
+.text-link:hover {
+  @apply text-[color:var(--v)];
+}
+.sample-notice {
+  border-left: 2px solid var(--v);
+  padding: 4px 0 4px 14px;
+}
+.trust-strip {
+  border-block: 1px solid var(--line);
+}
+.trust-strip h2 {
+  @apply text-[clamp(1.25rem,2vw,1.7rem)];
+}
+.trust-signals > div {
+  @apply flex items-center gap-4 text-[color:var(--muted)] text-[.9rem];
+}
+.outline-number {
+  font-family: "Bricolage Grotesque",sans-serif;
+  -webkit-text-stroke: 1px var(--b);
+  opacity: .7;
+}
+.challenge-card h3 {
+  @apply max-w-[27ch];
+}
+.solution-line {
+  border-top: 1px solid var(--line);
+}
+.solution-line > span {
+  @apply text-[color:var(--v)] text-[1.25rem];
+}
+.service-card .text-link {
+  @apply mt-auto pt-6;
+}
+.service-card ul {
+  @apply mb-[14px];
+}
+.service-card .ic {
+  font: 800 1.15rem "Bricolage Grotesque",sans-serif;
+}
+.deliverable {
+  display: inline-block;
+  border: 1px solid var(--line);
+}
+.project-card {
+  @apply p-6;
+}
+.project-preview .mk {
+  @apply h-[205px] p-5 mb-0;
+}
+.project-preview .m1 .bn {
+  @apply h-[80px];
+}
+.project-preview .m2 .tiles {
+  @apply mt-[25px];
+}
+.project-preview .m2 .tiles span {
+  @apply h-[100px];
+}
+.project-preview .m3 .phn {
+  @apply m-auto h-[150px] w-[95px];
+}
+.project-preview .m4 svg {
+  @apply h-[135px];
+}
+.project-label {
+  bottom: 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+.project-meta .eyebrow {
+  @apply m-0;
+}
+.project-card h3 {
+  @apply text-[1.7rem] mb-3;
+}
+.project-challenge {
+  border-top: 1px solid var(--line);
+}
+.project-challenge strong {
+  @apply block text-[.78rem] mb-[6px];
+}
+.project-card .tags {
+  @apply mt-[18px];
+}
+.project-card .text-link {
+  @apply mt-6;
+}
+.project-dialog {
+  border: 1px solid var(--line);
+  background: var(--bg2);
+}
+.project-dialog::backdrop {
+  background: color-mix(in srgb,var(--bg) 80%,transparent);
+  backdrop-filter: blur(8px);
+}
+.project-dialog h2 {
+  @apply text-[2rem];
+  margin: 12px 40px 24px 0;
+}
+.project-dialog h3 {
+  @apply text-[1.2rem];
+  margin: 22px 0 10px;
+}
+.project-dialog p,.project-dialog li {
+  @apply text-[color:var(--muted)] text-[.95rem];
+}
+.project-dialog ul {
+  @apply pl-[18px];
+  list-style: disc;
+}
+.project-dialog .btn {
+  @apply mt-[22px];
+}
+.demo-caption {
+  border-bottom: 1px solid var(--line);
+}
+.quote-mark {
+  font: 800 5rem/.8 "Bricolage Grotesque",sans-serif;
+  margin: 8px 0 12px;
+}
+.testimonial-card blockquote {
+  @apply text-[1rem] leading-[1.8];
+  margin: 20px 0 26px;
+}
+.testimonial-card figcaption {
+  @apply flex gap-3 items-center mt-auto pt-5 w-[100%];
+  border-top: 1px solid var(--line);
+}
+.quote-avatar {
+  background: linear-gradient(135deg,var(--b2),var(--v));
+}
+.testimonial-card figcaption strong {
+  @apply block text-[.85rem];
+}
+.testimonial-card figcaption div > span {
+  @apply text-[.72rem] text-[color:var(--muted)];
+}
+.engagement-card:not(.hot) {
+  @apply p-0;
+}
+.engagement-inner {
+  @apply p-7 h-[100%] flex flex-col;
+}
+.ways .hot > .engagement-inner {
+  @apply p-7;
+}
+.engagement-inner h3 {
+  @apply mb-[14px] text-[1.5rem];
+}
+.engagement-inner .eyebrow {
+  @apply mb-[22px];
+}
+.scope-note {
+  border: 1px solid var(--line);
+  background: var(--gl);
+}
+.scope-note p {
+  @apply text-[.88rem] text-[color:var(--muted)] mt-[5px];
+}
+.team-note .small-tag {
+  @apply shrink-0;
+}
+.team-note p {
+  @apply text-[color:var(--muted)] text-[.85rem];
+}
+.faq-layout > * {
+  min-width: 0;
+}
+.faq-layout .sh {
+  @apply mb-6;
+}
+.faq-layout .sh h2 {
+  @apply text-[clamp(1.8rem,3vw,2.6rem)];
+}
+.fq.open > div {
+  @apply max-h-[450px];
+}
+.contact h2 {
+  @apply text-[clamp(2rem,3.3vw,3rem)];
+}
+.contact-steps > div {
+  @apply flex items-center gap-3;
+}
+.contact-steps > div > span {
+  @apply grid place-items-center w-[30px] h-[30px] rounded-[50%] text-[color:var(--b)] text-[.7rem];
+  flex: none;
+  border: 1px solid var(--line);
+}
+.contact-steps p {
+  @apply text-[.86rem] m-0;
+}
+.contact .contact-disclaimer {
+  @apply text-[.72rem] mt-4;
+}
+.fm label {
+  @apply grid gap-[7px] text-[color:var(--ink)] text-[.8rem] font-medium;
+}
+.fm .optional {
+  @apply text-[color:var(--muted)] font-normal;
+}
+.fm input,.fm textarea,.fm select {
+  @apply text-[.9rem];
+}
+.fm select {
+  @apply w-[100%] py-[14px] px-3 rounded-[14px] text-[color:var(--ink)];
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: var(--bg2);
+  font-family: inherit;
+}
+.fm select:focus-visible {
+  outline: 2px solid var(--v);
+  outline-offset: 2px;
+}
+.form-footnote a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.fm .ok {
+  @apply text-[.8rem];
+}
+.footer-top > * {
+  min-width: 0;
+}
+.footer-top p {
+  @apply text-[color:var(--muted)] max-w-[36ch] text-[.85rem] my-4 mx-0;
+}
+.footer-top h3 {
+  @apply text-[.95rem] mb-[18px];
+}
+.footer-top nav {
+  @apply grid gap-[10px];
+}
+.brand-dot {
+  background: var(--b);
+  box-shadow: 0 0 16px var(--glow);
+}
+.privacy-notice {
+  border-block: 1px solid var(--line);
+}
+.privacy-notice summary {
+  @apply cursor-pointer;
+}
+.privacy-notice p {
+  @apply mt-3 max-w-[85ch] text-[color:var(--muted)];
+}
+/* The hero gets its own wide-screen container instead of the 1160px section cap. */
+@media (min-width:961px) {
+  main > .hero {
+    @apply w-[100%] max-w-[2240px] grid-cols-[minmax(0,1.2fr)_minmax(0,.8fr)] gap-[clamp(36px,4vw,80px)];
+    padding-inline: clamp(20px,4vw,96px);
+    min-height: 0;
+  }
+  .hero h1 {
+    @apply text-[clamp(2.8rem,3.65vw,5.1rem)];
+  }
+  .hero .lead {
+    @apply max-w-[52ch];
+  }
+  .hero .stage {
+    @apply max-w-[clamp(440px,30vw,620px)];
+  }
+}
+@media (min-width:1440px) {
+  main > .hero {
+    @apply grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)];
+  }
+}
+/* Three independent columns keep desktop links truly centred. */
+#nav {
+  @apply grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] gap-5;
+}
+#nav .logo {
+  @apply justify-self-start;
+}
+#nav .menu {
+  @apply justify-self-center gap-[22px];
+}
+#nav .nav-cta {
+  @apply text-[.8rem] py-[10px] px-4 rounded-[12px] whitespace-nowrap;
+}
+#nav .tg {
+  @apply shrink-0;
+}
+/* Transparent technology ribbon: the existing ambient background stays visible. */
+.mq {
+  @apply bg-transparent py-8 px-0;
+  border: 0;
+  mask-image: linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}
+.mq .marquee-track {
+  @apply flex w-[max-content] text-[color:var(--ink)];
+  font: 800 clamp(1.2rem,2vw,1.7rem) "Bricolage Grotesque",sans-serif;
+  -webkit-text-stroke: 0;
+}
+.tech-name {
+  background: linear-gradient(110deg,var(--ink),var(--b) 60%,var(--v));
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.tech-index {
+  font: 500 .62rem "Instrument Sans",sans-serif;
+  align-self: flex-start;
+}
+@media(max-width:1100px) {
+  #nav {
+    @apply gap-3;
+    padding-inline: 3%;
+  }
+  #nav .menu {
+    @apply gap-[14px] text-[.85rem];
+  }
+  #nav .nav-cta {
+    @apply py-[10px] px-3 text-[.72rem];
+  }
+}
+@media(max-width:960px) {
+  .testimonial-grid {
+    @apply grid-cols-[1fr];
+  }
+  .faq-layout {
+    @apply grid-cols-[1fr] gap-[30px];
+  }
+  .team-note {
+    @apply items-start flex-col gap-3;
+  }
+  .footer-top {
+    @apply grid-cols-[1fr_1fr] gap-8;
+  }
+  .footer-top > div:first-child {
+    grid-column: 1 / -1;
+  }
+}
+@media(max-width:760px) {
+  #nav {
+    @apply flex gap-3;
+    padding-inline: 5%;
+  }
+  #nav .nav-actions {
+    @apply ml-[auto];
+  }
+  #nav .nav-cta {
+    @apply hidden;
+  }
+  #nav .menu {
+    @apply gap-0;
+    justify-self: stretch;
+  }
+  #nav .tg {
+    @apply w-9 h-9;
+  }
+  .trust-strip {
+    @apply grid-cols-[1fr] gap-6;
+  }
+  .challenge-grid,.project-grid {
+    @apply grid-cols-[1fr];
+  }
+  .project-card {
+    @apply p-5;
+  }
+  .project-meta {
+    @apply items-start flex-col;
+  }
+  .scope-note {
+    @apply p-5;
+  }
+  .engagement-inner {
+    @apply p-6;
+  }
+  .project-dialog {
+    @apply py-7 px-5;
+  }
+}
+@media(max-width:480px) {
+  .form-pair,.footer-top {
+    @apply grid-cols-[1fr];
+  }
+  .footer-top > div:first-child {
+    grid-column: auto;
+  }
+  .challenge-top {
+    @apply items-start flex-col;
+  }
+  .trust-strip h2 {
+    @apply text-[1.4rem];
+  }
+  .tech-word {
+    @apply py-0 px-3 gap-[10px];
+  }
+  .tech-spark {
+    @apply ml-[10px];
+  }
+}
+/* Explicit overrides of the retained section/footer rules, generated by Tailwind. */
+.trust-section {
+  @apply pt-4 pb-10;
+}
+.studio-footer {
+  @apply block pb-8 w-full max-w-[2240px] px-[clamp(20px,4vw,96px)];
+}
+#nav {
+  @apply px-[clamp(20px,4vw,96px)];
+}
+@media (min-width: 961px) {
+  .trust-strip {
+    @apply grid-cols-[1.2fr_1fr];
+  }
+  .faq-layout {
+    @apply grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)];
+  }
+}
+/* Content determines hero height; avoid a viewport-sized empty tail. */
+main > .hero {
+  @apply min-h-0 pt-[clamp(28px,3vw,56px)] pb-[clamp(32px,3.5vw,64px)];
+}
+main > .trust-section {
+  @apply pt-0 pb-6;
+}
+main > #challenges {
+  @apply pt-[clamp(40px,4vw,72px)];
+}

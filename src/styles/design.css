@@ -34,10 +34,6 @@
   --s2: #10286e;
   --bo: .3
 }
-* {
-  box-sizing: border-box;
-  margin: 0
-}
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 74px
@@ -264,7 +260,7 @@ section {
 }
 .hero {
   grid-template-columns: 1.05fr .95fr;
-  min-height: calc(100vh - 64px);
+  min-height: 0;
   padding-top: 24px
 }
 .pill {

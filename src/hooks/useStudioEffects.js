@@ -5,7 +5,6 @@ import cardEffects from "../behaviors/cardEffects";
 import heroEffects from "../behaviors/heroEffects";
 import particleBackground from "../behaviors/particleBackground";
 import chatDemo from "../behaviors/chatDemo";
-import faqAccordion from "../behaviors/faqAccordion";
 import contactForm from "../behaviors/contactForm";
 
 // Dispose every observer, listener, timer and animation frame on unmount,
@@ -59,7 +58,6 @@ export default function useStudioEffects() {
     heroEffects(context);
     particleBackground(context);
     chatDemo(context);
-    faqAccordion(context);
     contactForm(context);
     return () => {
       controller.abort();

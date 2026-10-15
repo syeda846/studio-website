@@ -1,24 +1,23 @@
-// Reference interaction preserved with lifecycle-scoped browser APIs.
-export default function contactForm({
-  $,
-  listen
-}) {
-  var chips = $("chips");
-  listen(chips, "click", function (e) {
-    if (e.target.tagName === "BUTTON") e.target.classList.toggle("on");
-  });
-  document.querySelectorAll("[data-pre]").forEach(function (bt) {
-    listen(bt, "click", function () {
-      $("m").value = "I am interested in: " + bt.dataset.pre + ".\n";
-      chips.querySelectorAll("button").forEach(function (c) {
-        c.classList.toggle("on", bt.dataset.pre.indexOf("Redesign") === 0 && c.textContent === "Redesign");
-      });
-      document.getElementById("contact").scrollIntoView({
-        behavior: "smooth"
-      });
-    });
-  });
-  $("send").onclick = function () {
-    $("ok").textContent = $("n").value.trim() && $("e").value.trim() ? "Thank you! This is a demo form, so nothing was sent yet." : "Please add your name and email or WhatsApp number.";
-  };
+// Shared service CTA selection. Form validation and submission UI live in React.
+export default function contactForm({ $, listen }) {
+ const chips = $('chips')
+ listen(chips, 'click', (event) => {
+  const button = event.target.closest('button')
+  if (!button || !chips.contains(button)) return
+  const selected = button.classList.toggle('on')
+  button.setAttribute('aria-pressed', String(selected))
+ })
+ document.querySelectorAll('[data-pre]').forEach((button) => {
+  listen(button, 'click', () => {
+   const interest = button.dataset.pre
+   $('m').value = `I am interested in: ${interest}.\n`
+   const service = interest.startsWith('Redesign') ? 'Redesign' : interest === 'Ongoing support' ? 'Support' : interest
+   chips.querySelectorAll('button').forEach((chip) => {
+    const selected = chip.textContent === service
+    chip.classList.toggle('on', selected)
+    chip.setAttribute('aria-pressed', String(selected))
+   })
+   $('contact').scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', inline: 'nearest'})
+  })
+ })
 }
